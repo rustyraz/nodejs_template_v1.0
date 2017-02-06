@@ -1,0 +1,26 @@
+
+{{# each products}}
+  <div class="row">
+    {{#each this}}
+      <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="{{this.imagePath}}">
+              <span class="card-title">{{this.title}}</span>
+              <a href="/shop/add-to-cart/{{this._id}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title grey-text">
+                Price : {{this.price}}/=
+                <i class="material-icons right">more_vert</i>
+              </span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+              <p>{{this.description}}</p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+{{/each}}

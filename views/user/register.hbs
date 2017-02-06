@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col s12 m8 offset-m2 z-depth-5">
+    <h5><i class="material-icons">business</i> {{title}}</h5>
+    <hr>
+    {{# if hasErrors}}
+    <div class="card-panel #ffcdd2 red lighten-4">
+      {{# each messages}}
+        <span>{{this}}</span>
+      {{/each}}
+    </div>
+    {{/if}}
+    <form class="col s12" action="/user/register" method="post">
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <input placeholder="Placeholder" type="text" name="first_name" class="validate" value="">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <input placeholder="Placeholder" type="text" name="last_name" class="validate" value="">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <input placeholder="Placeholder" type="tel" name="phone" class="validate" value="">
+          <label for="phone">Phone Number</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <input placeholder="Placeholder" type="email" name="email" class="validate" value="">
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <input placeholder="Placeholder" type="password" name="password" class="validate" value="">
+          <label for="password">Password</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <input placeholder="Placeholder" type="password" name="confirm_password" class="validate" value="">
+          <label for="confirm_password">Re-enter Password</label>
+        </div>
+        <div class="input-field col s12">
+          <input type="hidden" name="_csrf" value="{{csrfToken}}">
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

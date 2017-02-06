@@ -1,0 +1,46 @@
+
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper blue-grey darken-1">
+        <a href="/" class="brand-logo">LMS Inc</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li>
+            <a href="/shop/cart">
+              Cart <span class="new badge red" data-badge-caption="">
+                {{session.cart.totalQty}}
+              </span>
+            </a>
+          </li>
+          {{# if login}}
+          <li><a href="/user/profile">Profile</a></li>
+          <li><a href="/user/logout">logout</a></li>
+          {{else}}
+          <li><a href="/user/login">login</a></li>
+          <li><a href="/user/register">Register</a></li>
+          {{/if}}
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="/">Home</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li>
+            <a href="/shop/cart">
+              Cart <span class="new badge red" data-badge-caption="">
+                {{session.cart.totalQty}}
+              </span>
+            </a>
+          </li>
+
+          {{# if login}}
+          <li><a href="/user/profile">Profile</a></li>
+          <li><a href="/user/logout">logout</a></li>
+          {{else}}
+          <li><a href="/user/login">login</a></li>
+          <li><a href="/user/register">Register</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </nav>
+  </div>
