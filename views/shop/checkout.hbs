@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col s12 m6 offset-m3">
+    <h5>{{title}}</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m6 offset-m3 z-depth-5">
+
+    <p><b>Your Total : ${{total}} </b></p>
+    <div id="payment-errors" class="white-text card-panel red lighten-6"></div>
+    {{#if noError}}
+      <div class="white-text card-panel red lighten-6">{{errMsg}}</div>
+    {{/if}}
+
+    <form class="col s12" id="payment-form" action="/shop/checkout" method="post">
+      <div class="row">
+        <div class="input-field inline col s12">
+          <input type="text" id="card_holder_name" required class="validate" value="" name="card_holder_name">
+          <label for="card_holder_name">Card Holder Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field inline col s12">
+          <input type="text" id="address_zip" required class="validate" data_type="address_zip" name="address_zip">
+          <label for="address_zip">Address/Zip-Code</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field inline col s12">
+          <input type="text" id="number" required class="validate" value="" data-stripe="number">
+          <label for="number">Credit Card Number</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field inline col s12 m6">
+          <input type="text" data-stripe="exp_month"  size="2" id="exp_month" required class="validate" value="">
+          <label for="exp_month">Expiration Month</label>
+        </div>
+        <div class="input-field inline col s12 m6">
+          <input type="text" id="exp_year" data-stripe="exp_year" size="2" required class="validate" value="">
+          <label for="exp_year">Expiration year</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field inline col s12 m12">
+          <input type="text" size="4" data-stripe="cvc" id="cvc" required class="validate" value="">
+          <label for="cvc">CVC</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <button class="submit btn waves-effect waves-light" type="submit" name="action">Buy Now
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="../javascripts/checkout.js"></script>

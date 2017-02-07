@@ -1,1 +1,36 @@
-<h1>Profile page!!!</h1>
+<div class="row">
+  <div class="col s12 m8 offset-m2">
+    <h3>{{title}}</h3>
+  </div>
+  <div class="col s12 m8 offset-m2 z-depth-5">
+    {{# each orders}}
+    <table>
+      <table class="striped">
+        <thead>
+          <th>Item Name</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Total</th>
+        </thead>
+        <tbody>
+          {{# each this.items}}
+          <tr>
+            <td>{{this.item.title}}</td>
+            <td>{{this.qty}}</td>
+            <td>ksh. {{this.item.price}}</td>
+            <td><b>ksh. {{this.price}}</b></td>
+          </tr>
+          {{/each}}
+          <tr>
+            <td></td>
+            <td></td>
+            <td><b>TOTAL : </b></td>
+            <td><h5>ksh. {{this.cart.totalPrice}}</h5></td>
+          </tr>
+        </tbody>
+      </table>
+    </table>
+    <p><hr></p>
+    {{/each}}
+  </div>
+</div>

@@ -1,9 +1,44 @@
 <div class="row">
-  <div class="col s12">
+  {{# if products}}
+  <div class="col s12 ">
     <h4>Shopping cart </h4>
   </div>
+  <div class="col s12 z-depth-5">
+    <table class="striped">
+      <thead>
+        <th>Item Name</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Total</th>
+      </thead>
+      <tbody>
+        {{# each products}}
+        <tr>
+          <td>{{this.item.title}}</td>
+          <td>{{this.qty}}</td>
+          <td>ksh. {{this.item.price}}</td>
+          <td><b>ksh. {{this.price}}</b></td>
+        </tr>
+        {{/each}}
+        <tr>
+          <td></td>
+          <td></td>
+          <td><b>TOTAL : </b></td>
+          <td><b>ksh. {{totalPrice}}</b></td>
+        </tr>
+      </tbody>
+    </table>
+    <p></p>
+  </div>
   <div class="col s12">
+    <p><a href="/shop/checkout" class="btn waves-effect waves-light">Checkout</a></p>
 
   </div>
+  {{else}}
+  <p>&nbsp;</p>
+  <div class="col s12 z-depth-5 ">
+    <h3 align="center">Shopping Cart is Empty !!</h3>
+  </div>
+  {{/if}}
 
 </div>
