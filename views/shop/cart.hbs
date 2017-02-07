@@ -15,16 +15,24 @@
         {{# each products}}
         <tr>
           <td>{{this.item.title}}</td>
-          <td>{{this.qty}}</td>
+          <td>
+            <a class="btn" href="/shop/reduce/{{this.item._id}}"><b>-</b></a>
+            {{this.qty}}
+            <a class="btn" href="/shop/add/{{this.item._id}}"><b>+</b></a>
+          </td>
           <td>ksh. {{this.item.price}}</td>
-          <td><b>ksh. {{this.price}}</b></td>
+          <td>
+            <b>ksh. {{this.price}}</b>
+            <a class="red-text" href="/shop/remove_item/{{this.item._id}}">remove</a> </td>
+          </td>
         </tr>
         {{/each}}
         <tr>
           <td></td>
           <td></td>
           <td><b>TOTAL : </b></td>
-          <td><b>ksh. {{totalPrice}}</b></td>
+          <td>
+            <b>ksh. {{totalPrice}}</b>
         </tr>
       </tbody>
     </table>
